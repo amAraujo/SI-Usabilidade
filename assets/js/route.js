@@ -1,20 +1,16 @@
 /**
  * Created by mateu on 02/11/2016.
  */
-angular.module('app.route',[])
-    .config(function ($stateProvider, $urlRouterProvider) {
+var approuter = angular.module('App.router',[]);
 
-        var HOME = {
-            name: 'home',
-            url: '/home',
-            views:{
-                'content':{
-                    templateURL: 'components/home/homeasasasa.html',
-                    controller: ''
-                }
-            }
-        };
+approuter.config(function ($stateProvider, $urlRouterProvider) {
 
-        $stateProvider.state(HOME);
-        $urlRouterProvider.otherwise('app/home')
-    });
+    const home = {
+        name: 'home',
+        url: '/home',
+        templateUrl: 'app/components/home/home.html'
+    };
+
+    $stateProvider.state(home);
+    $urlRouterProvider.otherwise('/home');
+});

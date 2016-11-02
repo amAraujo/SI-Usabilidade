@@ -11,7 +11,11 @@
 
 <md-content>
     <md-tabs>
-        <md-tab label="Portal"></md-tab>
-        <md-tab label="Administrativo"></md-tab>
+        <md-tab label="Portal">
+            <div ng-include="'app/components/portal/portal.html'"></div>
+        </md-tab>
+        <md-tab label="Administrativo">
+            <div ng-include="'app/components/adm/adm.html'"></div>
+        </md-tab>
     </md-tabs>
 </md-content>

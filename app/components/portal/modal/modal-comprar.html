@@ -1,0 +1,62 @@
+<md-dialog aria-label="List dialog">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Complete com suas informações</h2>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div class="col-md-8">
+            <md-input-container>
+                <label for="">Nome completo</label>
+                <input type="text">
+            </md-input-container>
+        </div>
+        <div class="col-md-4">
+            <md-input-container>
+                <label for="">CPF</label>
+                <input type="text">
+            </md-input-container>
+        </div>
+        <div class="col-md-12">
+            <md-radio-group ng-model="formaDePagamento">
+                <md-radio-button value="Boleto" checked>Boleto</md-radio-button>
+                <md-radio-button value="Credito">Crédito</md-radio-button>
+                <md-radio-button value="Debito">Débito</md-radio-button>
+            </md-radio-group>
+        </div>
+        <div class="col-md-6" ng-show="formaDePagamento !== 'Boleto'">
+            <md-input-container>
+                <label>Bandeira do cartão</label>
+                <md-select ng-model="someModel" placeholder="Bandeira">
+                    <md-option value="MASTERCARD">MASTERCARD</md-option>
+                    <md-option value="VISA">VISA</md-option>
+                    <md-option value="AMERICAN EXPRESS">AMERICAN EXPRESS</md-option>
+                    <md-option value="HIPERCARD">HIPERCARD</md-option>
+                    <md-option value="ELO">ELO</md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+        <div class="col-md-6" ng-show="formaDePagamento !== 'Boleto'">
+            <md-input-container>
+                <label for="">Número do cartão</label>
+                <input type="text">
+            </md-input-container>
+        </div>
+        <div class="col-md-6" ng-show="formaDePagamento !== 'Boleto'">
+            <md-input-container>
+                <label for="">Nome como escrito no cartão</label>
+                <input type="text">
+            </md-input-container>
+        </div>
+        <div class="col-md-6" ng-show="formaDePagamento !== 'Boleto'">
+            <md-input-container>
+                <label for="">Código de segurança</label>
+                <input type="text">
+            </md-input-container>
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions>
+        <md-button ng-click="showAlert()" class="md-primary md-raised">Finalizar Compra</md-button>
+        <md-button ng-click="hideModal()" class="md-raised md-raised md-warn">Cancelar</md-button>
+    </md-dialog-actions>
+</md-dialog>

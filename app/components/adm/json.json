@@ -1,0 +1,35 @@
+{
+  "passagens":
+  [
+    {
+      "nome": "Arthur Martins",
+      "status": "pago",
+      "origem": "Campina Grande",
+      "destino": "João Pessoa"
+    },
+    {
+      "nome": "Mateus Rodrigues",
+      "status": "pago",
+      "origem": "Esperança",
+      "destino": "Campina Grande"
+    },
+    {
+      "nome": "Bruno",
+      "status": "pago",
+      "origem": "Esperança",
+      "destino": "Campina Grande"
+    },
+    {
+      "nome": "Jack Metralha",
+      "status": "pago",
+      "origem": "Serra Redonda",
+      "destino": "Campina Grande"
+    },
+    {
+      "nome": "Renato Ninja",
+      "status": "pago",
+      "origem": "Campina Grande",
+      "destino": "Soledade"
+    }
+  ]
+}

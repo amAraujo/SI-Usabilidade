@@ -1,0 +1,19 @@
+<md-dialog aria-label="List dialog">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Confirmar Compra</h2>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div class="col-md-8"><h4>Codigo do bilhete</h4></div>
+        <div class="col-md-4">{{codigoBilhete}}</div>
+        <div class="col-md-8"><h4>Forma de pagamento</h4></div>
+        <div class="col-md-4">Boleto</div>
+        <div class="col-md-8"><h4>Valor</h4></div>
+        <div class="col-md-4">R$ 30,00</div>
+    </md-dialog-content>
+    <md-dialog-actions>
+        <md-button class="md-primary md-raised" ng-click="showSpinner()">Confirmar Pagamento</md-button>
+        <md-button ng-click="hideModal()" class="md-warn" >Cancelar</md-button>
+    </md-dialog-actions>
+</md-dialog>

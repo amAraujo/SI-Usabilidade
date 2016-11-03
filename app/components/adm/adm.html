@@ -1,3 +1,17 @@
+<div ng-controller="admController as self">
+  <div print-section>
+      <div print-only>
+         <div class="col-md-12">
+             <h2><strong> Origem - Destino:</strong> {{self.comprovante.rota}}</h2>
+             <h2><strong> Hora:</strong> {{self.comprovante.hora}}</h2>
+             <h2><strong> Cliente:</strong> {{self.comprovante.cliente}}</h2>
+             <h2><strong> CPF:</strong> {{self.comprovante.cpf}}</h2>
+             <h2><strong> Valor:</strong> {{self.comprovante.valor}}</h2>
+             <h2><strong> Linha Digitavel:</strong> {{self.comprovante.linha}}</h2>
+         </div>
+      </div>
+  </div>
+
 <div>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -10,100 +24,17 @@
 
     <md-content flex>
         <md-list>
-            <md-list-item class="md-3-line" ng-click="null">
+            <md-list-item class="md-3-line" ng-click="null" ng-repeat="passagem in listaPassagemVendidas">
                 <div class="md-list-item-text">
-                    <h3>Arthur Martins</h3>
-                    <h4>Pago</h4>
-                    <p>Campina Grande - João Pesssoa</p>
+                    <h3 ng-bind="passagem.cliente"></h3>
+                    <h4 ng-bind="passagem.statusPagamento"></h4>
+                    <p ng-bind="passagem.rota"></p>
                 </div>
-            </md-list-item>
-            <md-button class="md-raised md-primary">Imprimir comprovante</md-button>
-
-            <md-divider inset></md-divider>
-
-            <md-list-item class="md-3-line" ng-click="null">
-                <div class="md-list-item-text">
-                    <h3>Arthur Martins</h3>
-                    <h4>Pendente</h4>
-                    <p>Campina Grande - João Pesssoa</p>
-                </div>
-            </md-list-item>
-            <md-button class="md-raised md-primary">Imprimir comprovante</md-button>
-            <md-button class="md-raised md-primary">Pagar</md-button>
-
-            <md-divider inset></md-divider>
-
-            <md-list-item class="md-3-line" ng-click="null">
-                <div class="md-list-item-text">
-                    <h3>Arthur Martins</h3>
-                    <h4>Pago</h4>
-                    <p>Campina Grande - João Pesssoa</p>
-                </div>
-            </md-list-item>
-            <md-button class="md-raised md-primary">Imprimir comprovante</md-button>
-
-            <md-divider inset></md-divider>
-
-            <md-list-item class="md-3-line" ng-click="null">
-                <div class="md-list-item-text">
-                    <h3>Arthur Martins</h3>
-                    <h4>Pendente</h4>
-                    <p>Campina Grande - João Pesssoa</p>
-                </div>
-            </md-list-item>
-            <md-button class="md-raised md-primary">Imprimir comprovante</md-button>
-            <md-button class="md-raised md-primary">Pagar</md-button>
-
-            <md-divider inset></md-divider>
-
-            <md-list-item class="md-3-line" ng-click="null">
-                <div class="md-list-item-text">
-                    <h3>Arthur Martins</h3>
-                    <h4>Pago</h4>
-                    <p>Campina Grande - João Pesssoa</p>
-                </div>
-            </md-list-item>
-            <md-button class="md-raised md-primary">Imprimir comprovante</md-button>
-
-            <md-divider inset></md-divider>
-
-            <md-list-item class="md-3-line" ng-click="null">
-                <div class="md-list-item-text">
-                    <h3>Arthur Martins</h3>
-                    <h4>Pendente</h4>
-                    <p>Campina Grande - João Pesssoa</p>
-                </div>
-            </md-list-item>
-            <md-button class="md-raised md-primary">Imprimir comprovante</md-button>
-            <md-button class="md-raised md-primary">Pagar</md-button>
-
-            <md-divider inset></md-divider>
-
-        </md-list>
-    </md-content>
-</div>
-
-<!--
-
-<div flex>
-
-</div>
-<div>
-    <md-content>
-        <md-list flex>
-            <md-list-item class="md-2-line" ng-click="null">
-                <div class="md-list-item-text">
-                    <h3>Nome</h3>
-                    <h4>Artur Martins</h4>
-                </div>
-            </md-list-item>
-            <md-list-item class="md-2-line" ng-click="null">
-                <div class="md-list-item-text">
-                    <h3>Nome</h3>
-                    <h4>Adriana Martins</h4>
-                </div>
+                <md-button class="md-raised md-primary" ng-disabled="passagem.statusPagamento == 'Pendente'" ng-click="self.imprimir()">Imprimir comprovante</md-button>
+                <md-button class="md-raised" style="background: chartreuse;color: blue;" ng-if="passagem.statusPagamento == 'Pendente'" ng-click="self.showAlert($index,passagem)">Pagar</md-button>
+                <md-divider inset></md-divider>
             </md-list-item>
         </md-list>
     </md-content>
 </div>
--->
+</div>

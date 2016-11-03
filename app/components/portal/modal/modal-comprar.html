@@ -1,20 +1,20 @@
 <md-dialog aria-label="List dialog">
     <md-toolbar>
         <div class="md-toolbar-tools">
-            <h2>Complete com suas informações</h2>
+            <h2>Complete com suas informações !</h2>
         </div>
     </md-toolbar>
     <md-dialog-content>
         <div class="col-md-8">
             <md-input-container>
                 <label for="">Nome completo</label>
-                <input type="text">
+                <input type="text" ng-model="objeto.cliente">
             </md-input-container>
         </div>
         <div class="col-md-4">
             <md-input-container>
                 <label for="">CPF</label>
-                <input type="text">
+                <input type="text" ng-model="objeto.cpf">
             </md-input-container>
         </div>
         <div class="col-md-12">

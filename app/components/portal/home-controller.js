@@ -72,7 +72,13 @@ appController.controller('PortalController',function ($mdDialog, $scope) {
             });
     };
 
-    function ModalController($scope,$timeout,$window) {
+    function ModalController($scope,$timeout,$window,$rootScope) {
+        self.objCompra = $scope.objeto = {
+          rota: 'Campina Grande - João Pessoa',
+          statusPagamento: 'Pendente',
+          cliente: '',
+          cpf: ''
+        }
         $scope.codigoBilhete = Math.floor(Math.random() * 65536);
         $scope.formaDePagamento = 'Boleto';
 
@@ -81,6 +87,8 @@ appController.controller('PortalController',function ($mdDialog, $scope) {
         };
 
         $scope.showAlert = function() {
+          console.log($scope.objeto)
+          $rootScope.listaPassagemVendidas.push(self.objCompra);
             $mdDialog.show({
                 controller: ModalController,
                 templateUrl: 'app/components/portal/modal/modal-confirmar-compra.html',
@@ -94,7 +102,6 @@ appController.controller('PortalController',function ($mdDialog, $scope) {
         };
 
         $scope.showSpinner = function() {
-
             $mdDialog.show({
                 controller: ModalController,
                 templateUrl: 'app/components/portal/modal/spinner.html',
@@ -106,6 +113,7 @@ appController.controller('PortalController',function ($mdDialog, $scope) {
 
             $timeout(function () {
                 $scope.hideModal();
+                console.log($rootScope.listaPassagemVendidas)
                 $window.print()
             }, 3000)
         };

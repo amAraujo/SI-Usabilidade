@@ -1,7 +1,7 @@
 /**
  * Created by mateu on 02/11/2016.
  */
-moduloControlador.controller('PortalController',function ($mdDialog, $scope) {
+appController.controller('PortalController',function ($mdDialog, $scope) {
     var self = this;
     self.horarios = [];
 
@@ -53,7 +53,6 @@ moduloControlador.controller('PortalController',function ($mdDialog, $scope) {
 
     self.pesquisarHorarios = function () {
         self.horarios = JSON.parse(localStorage.getItem('horarios'));
-        console.log(self.horarios);
     };
 
     self.limpar = function () {
@@ -70,7 +69,6 @@ moduloControlador.controller('PortalController',function ($mdDialog, $scope) {
         }).then(function(formaDePagamento) {
                 $scope.formaDePagamento = formaDePagamento;
             }, function() {
-                // $scope.status = 'You cancelled the dialog.';
             });
     };
 
@@ -103,9 +101,7 @@ moduloControlador.controller('PortalController',function ($mdDialog, $scope) {
                 parent: angular.element(document.body),
                 clickOutsideToClose:true
             }).then(function(answer) {
-                // $scope.status = 'You said the information was "' + answer + '".';
             }, function() {
-                // $scope.status = 'You cancelled the dialog.';
             });
 
             $timeout(function () {
